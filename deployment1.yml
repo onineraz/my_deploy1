@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-h 
+spec:
+  selector:
+    app: anginx
+  ports:
+  - port: 80
+    targetPort: 80
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: a-dep
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: anginx
+  template:
+    metadata:
+      name: a-pod
+      labels:
+        app: anginx
+    spec:
+      containers:
+      - name: web-con
+        image: onineraz/myweb:1
