@@ -26,4 +26,4 @@ spec:
     spec:
       containers:
       - name: web-con
-        image: onineraz/myweb:1
+        image: onineraz/myweb:2
